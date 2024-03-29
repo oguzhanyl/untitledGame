@@ -27,17 +27,25 @@ public class WeaponControl : MonoBehaviour
 
         //Fire
 
+        //Cooldown
         if (coolDown > 0)
         {
             coolDown -= Time.deltaTime;
         }
 
+        //Shot
         if (Input.GetMouseButtonDown(0) && coolDown <= 0)
         {
+            //Create Bullet
             Instantiate(bullet, firePoint.position, transform.rotation * Quaternion.Euler(90, 0, 0));
+            //Reset Cooldown
             coolDown = 0.15f;
 
+            //Sound
             GameObject.FindGameObjectWithTag("Player").GetComponent<AudioSource>().PlayOneShot(gunShot);
+
+            //Animation
+            GetComponent<Animator>().SetTrigger("shot");
         }
     }
 }
