@@ -11,6 +11,10 @@ public class WeaponControl : MonoBehaviour
 
     public GameObject bullet;
     public Transform firePoint;
+
+    private float coolDown;
+
+    public AudioClip gunShot;
     
     private void Update()
     {
@@ -23,9 +27,17 @@ public class WeaponControl : MonoBehaviour
 
         //Fire
 
-        if (Input.GetMouseButtonDown(0))
+        if (coolDown > 0)
+        {
+            coolDown -= Time.deltaTime;
+        }
+
+        if (Input.GetMouseButtonDown(0) && coolDown <= 0)
         {
             Instantiate(bullet, firePoint.position, transform.rotation * Quaternion.Euler(90, 0, 0));
+            coolDown = 0.15f;
+
+            GameObject.FindGameObjectWithTag("Player").GetComponent<AudioSource>().PlayOneShot(gunShot);
         }
     }
 }
