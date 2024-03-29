@@ -27,6 +27,8 @@ public class PlayerMovement : MonoBehaviour
     public float gravityDivide = 100f;
     public float jumpSpeed = 10;
 
+    private float aTimer;
+
 
     void Awake()
     {
@@ -61,12 +63,14 @@ public class PlayerMovement : MonoBehaviour
         if (!isGround)
         {
             velocity.y += gravity * Time.deltaTime / gravityDivide;
-            speed = jumpSpeed;
+            aTimer += Time.deltaTime / 3;
+            speed = Mathf.Lerp(0,jumpSpeed, aTimer);
         }
         else
         {
             velocity.y = -0.05f;
             speed = 10;
+            aTimer = 0;
         }
         if(Input.GetKeyDown(KeyCode.Space) && isGround)
         {

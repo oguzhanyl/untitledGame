@@ -38,7 +38,7 @@ public class WeaponControl : MonoBehaviour
         if (Input.GetMouseButtonDown(0) && coolDown <= 0)
         {
             //Create Bullet
-            Instantiate(bullet, firePoint.position, transform.rotation * Quaternion.Euler(90, 0, 0));
+            Instantiate(bullet, transform.position, transform.rotation * Quaternion.Euler(90, 0, 0));
             //Reset Cooldown
             coolDown = 0.15f;
 
