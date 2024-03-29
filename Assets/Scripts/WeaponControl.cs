@@ -6,6 +6,7 @@ public class WeaponControl : MonoBehaviour
 {
     public LayerMask obstacleLayer;
     public Vector3 offset;
+    public GameObject hand;
 
     RaycastHit hit;
 
@@ -21,8 +22,8 @@ public class WeaponControl : MonoBehaviour
         //Look
         if(Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit,Mathf.Infinity, obstacleLayer))
         {
-            transform.LookAt(hit.point);
-            transform.rotation *= Quaternion.Euler(offset);
+            hand.transform.LookAt(hit.point);
+            hand.transform.rotation *= Quaternion.Euler(offset);
         }
 
         //Fire
