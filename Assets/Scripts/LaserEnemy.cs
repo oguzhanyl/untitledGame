@@ -12,6 +12,7 @@ public class LaserEnemy : MonoBehaviour
 
     private void Update()
     {
+        //Enemy Laser
         if(Physics.Raycast(transform.position, transform.forward, out hit,Mathf.Infinity, obstacle))
         {
             GetComponent<LineRenderer>().enabled = true;
