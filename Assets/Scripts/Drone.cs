@@ -8,10 +8,12 @@ public class Drone : MonoBehaviour
 
     public float speed;
     public float follow_distance = 10f;
+    public Vector3 offset;
 
     private float cooldown = 2f;
 
     public GameObject mesh;
+    public GameObject bullet;
 
     private void Awake()
     {
@@ -53,6 +55,7 @@ public class Drone : MonoBehaviour
 
             //Shot
             mesh.GetComponent<Animator>().SetTrigger("shot");
+            Instantiate(bullet, transform.position, transform.rotation * Quaternion.Euler(offset));
         }
     }
 }
