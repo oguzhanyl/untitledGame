@@ -101,6 +101,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 100
   lifetime: 3
+  enemy_bullet: 0
+  bullet_radius: 0.5
+  player_layer:
+    serializedVersion: 2
+    m_Bits: 128
 --- !u!96 &4439286474527813941
 TrailRenderer:
   serializedVersion: 3

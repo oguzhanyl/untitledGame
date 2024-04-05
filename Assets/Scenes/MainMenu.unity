@@ -818,7 +818,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 10
   follow_distance: 20
+  offset: {x: 90, y: 0, z: 0}
   mesh: {fileID: 672975616}
+  bullet: {fileID: 683180017027272685, guid: aebc1fd4d8072ce4b9b762454339628c, type: 3}
 --- !u!4 &750379980
 Transform:
   m_ObjectHideFlags: 0
