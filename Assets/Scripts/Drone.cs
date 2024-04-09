@@ -14,6 +14,7 @@ public class Drone : MonoBehaviour
 
     public GameObject mesh;
     public GameObject bullet;
+    public GameObject death_effect;
 
     public float health = 100f;
 
@@ -66,6 +67,10 @@ public class Drone : MonoBehaviour
     {
         if(health <= 0)
         {
+            //Spawn Particle
+            Instantiate(death_effect, transform.position, Quaternion.identity);
+
+            //Destroy GameObject
             Destroy(this.gameObject);
         }
     }
