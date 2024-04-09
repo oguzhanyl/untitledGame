@@ -854,6 +854,7 @@ MonoBehaviour:
   bullet: {fileID: 683180017027272685, guid: aebc1fd4d8072ce4b9b762454339628c, type: 3}
   death_effect: {fileID: 4807855716666832044, guid: dbc574855ca0c224095751bb3bd2375d,
     type: 3}
+  death_sound: {fileID: 8300000, guid: dd579a5c91a937c4e8b2848f116b7002, type: 3}
   health: 100
 --- !u!4 &750379980
 Transform:
