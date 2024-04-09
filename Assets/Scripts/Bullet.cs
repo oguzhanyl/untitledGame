@@ -12,6 +12,8 @@ public class Bullet : MonoBehaviour
     public float bullet_radius = 0.5f;
     public LayerMask player_layer;
 
+    public GameObject hit_effect;
+
 
     private void Update()
     {
@@ -36,10 +38,17 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        //Hit to enemy
         if (other.CompareTag("Enemy"))
         {
             GameObject drone = other.transform.parent.gameObject;
             drone.GetComponent<Drone>().health -= 25f;
         }
+
+        //Hit Effect
+
+        Instantiate(hit_effect, transform.position, transform.rotation);
+        Destroy(this.gameObject);
+
     }
 }
