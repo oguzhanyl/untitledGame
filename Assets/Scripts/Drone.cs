@@ -15,6 +15,8 @@ public class Drone : MonoBehaviour
     public GameObject mesh;
     public GameObject bullet;
 
+    public float health = 100f;
+
     private void Awake()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
@@ -24,6 +26,7 @@ public class Drone : MonoBehaviour
     {
         FollowPlayer();
         Shot();
+        Death();
     }
 
     private void FollowPlayer()
@@ -56,6 +59,14 @@ public class Drone : MonoBehaviour
             //Shot
             mesh.GetComponent<Animator>().SetTrigger("shot");
             Instantiate(bullet, transform.position, transform.rotation * Quaternion.Euler(offset));
+        }
+    }
+
+    private void Death()
+    {
+        if(health <= 0)
+        {
+            Destroy(this.gameObject);
         }
     }
 }

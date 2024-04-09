@@ -33,4 +33,13 @@ public class Bullet : MonoBehaviour
             }
         }
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Enemy"))
+        {
+            GameObject drone = other.transform.parent.gameObject;
+            drone.GetComponent<Drone>().health -= 25f;
+        }
+    }
 }
