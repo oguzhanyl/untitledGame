@@ -12,6 +12,8 @@ public class Bullet : MonoBehaviour
     public float bullet_radius = 0.5f;
     public LayerMask player_layer;
 
+    public AudioClip hit_sound;
+
     public GameObject hit_effect;
 
 
@@ -43,6 +45,8 @@ public class Bullet : MonoBehaviour
         {
             GameObject drone = other.transform.parent.gameObject;
             drone.GetComponent<Drone>().health -= 25f;
+            //Sound Effect
+            drone.GetComponent<AudioSource>().PlayOneShot(hit_sound);
         }
 
         //Hit Effect

@@ -16,6 +16,8 @@ public class Drone : MonoBehaviour
     public GameObject bullet;
     public GameObject death_effect;
 
+    public AudioClip death_sound;
+
     public float health = 100f;
 
     private void Awake()
@@ -69,6 +71,9 @@ public class Drone : MonoBehaviour
         {
             //Spawn Particle
             Instantiate(death_effect, transform.position, Quaternion.identity);
+
+            //Play sound effect
+            GameObject.FindGameObjectWithTag("Player").GetComponent<AudioSource>().PlayOneShot(death_sound);
 
             //Destroy GameObject
             Destroy(this.gameObject);
